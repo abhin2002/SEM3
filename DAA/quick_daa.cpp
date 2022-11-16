@@ -10,20 +10,25 @@ int partition(int* A,int p,int r){
             i=i+1;
             int temp=A[i];
             A[i]=A[j];
-            A[j]=A[i];
+            A[j]=temp;
         }
+        
     }
     int temp=A[i+1];
     A[i+1]=A[r];
     A[r]=temp;
-    return i+1;
+    return i;
 }
 void quick_sort(int A[],int p,int r){
     if(p<r){
+        for(int i=0;i<9;i++)
+            cout<<A[i]<<" ";
+        cout<<"\n";
         int q=partition(A,p,r);
         quick_sort(A,p,q-1);
         quick_sort(A,q+1,r);
     }
+    
 }
 
 int main(){
