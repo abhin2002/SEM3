@@ -1,0 +1,8 @@
+Database changed   
+insert into country values('IN','India'),('SL','SriLanka'),('PK','Pakistan'),('BN','Bangladesh'),('NP','Nepal'); 
+create table capital(capitalId varchar(10),country_code varchar(10),capital_name varchar(100),primary key(capitalId),foreign key(country_code) references country(country_code));
+insert into capital values('C1','IN','New Delhi'),('C2','PK','Islamabad'),('C3','NP','Kathmandu');
+select * from country inner join capital on country.country_code=capital.country_code; 
+select * from country left join capital on country.country_code=capital.country_code;    
+select * from country right join capital on country.country_code=capital.country_code; 
+select * from country left join capital on country.country_code=capital.country_code union select * from country right join capital on country.country_code=capital.country_code;                                                                                                                                                                                                                 MariaDB [db2]> create table country(country_code varchar(10),                                                                                                                                                                                    -> country_name varchar(100),                                                                                                                                                                                                                -> primary key(country_code));      
