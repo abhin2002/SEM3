@@ -1,5 +1,7 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
+using namespace std::chrono;
 
 int partition(int* A,int p,int r){
     int x=A[r];
@@ -38,10 +40,17 @@ int main(){
     }
     for(int i=0;i<n;i++)
         cout<<A[i]<<" ";
-        cout<<"\n";
+    cout<<"\n";
+    
+    auto start = high_resolution_clock::now();
     quick_sort(A,0,n-1);
+    auto stop = high_resolution_clock::now();
+
     for(int i=0;i<n;i++)
         cout<<A[i]<<" ";
+    
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout<<"\n\nTime taken to sort : "<<duration.count()<<" microseconds"<<endl;
 
     return 0;
 }
