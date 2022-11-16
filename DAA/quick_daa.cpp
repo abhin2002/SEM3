@@ -17,13 +17,10 @@ int partition(int* A,int p,int r){
     int temp=A[i+1];
     A[i+1]=A[r];
     A[r]=temp;
-    return i;
+    return i+1;
 }
 void quick_sort(int A[],int p,int r){
     if(p<r){
-        for(int i=0;i<9;i++)
-            cout<<A[i]<<" ";
-        cout<<"\n";
         int q=partition(A,p,r);
         quick_sort(A,p,q-1);
         quick_sort(A,q+1,r);
@@ -32,20 +29,16 @@ void quick_sort(int A[],int p,int r){
 }
 
 int main(){
-    int n=9;
+    int n;
+    cout<<"Emter the number of elemnts : ";
+    cin>>n;
     int* A = new int[n];
-    A[0] = 12;
-    A[1] = 11;
-    A[2] = 1;
-    A[3] = 2;
-    A[4] = 42;
-    A[5] = 8;
-    A[6] = 5;
-    A[7] = 16;
-    A[8] = 10;
+    for(int i=0;i<n;i++){
+        A[i]=rand()%500;
+    }
     for(int i=0;i<n;i++)
         cout<<A[i]<<" ";
-    cout<<"\n";
+        cout<<"\n";
     quick_sort(A,0,n-1);
     for(int i=0;i<n;i++)
         cout<<A[i]<<" ";
