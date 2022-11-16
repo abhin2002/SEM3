@@ -46,11 +46,21 @@ int main(){
     quick_sort(A,0,n-1);
     auto stop = high_resolution_clock::now();
 
-    for(int i=0;i<n;i++)
-        cout<<A[i]<<" ";
+    // for(int i=0;i<n;i++)
+    //     cout<<A[i]<<" ";
     
     auto duration = duration_cast<microseconds>(stop - start);
     cout<<"\n\nTime taken to sort : "<<duration.count()<<" microseconds"<<endl;
+
+    auto st = high_resolution_clock::now();
+    quick_sort(A,0,n-1);
+    auto sp = high_resolution_clock::now();
+
+    // for(int i=0;i<n;i++)
+    //     cout<<A[i]<<" ";
+    
+    auto drtn = duration_cast<microseconds>(sp - st);
+    cout<<"\n\nTime taken to sort : "<<drtn.count()<<" microseconds"<<endl;
 
     return 0;
 }
