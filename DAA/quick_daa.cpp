@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include <chrono>
 using namespace std;
 using namespace std::chrono;
@@ -14,7 +14,6 @@ int partition(int* A,int p,int r){
             A[i]=A[j];
             A[j]=temp;
         }
-        
     }
     int temp=A[i+1];
     A[i+1]=A[r];
