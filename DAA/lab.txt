@@ -1,0 +1,24 @@
+DAA Lab cycles
+
+Lab cycle 1
+
+1. Quick sort
+2. BFS
+3. DFS
+4. Dijkstra
+5. Bellman Ford
+
+
+Lab cycle 2
+
+1. Floyd Warshall
+2. Kruskals 
+3. Prims
+
+
+Lab cycle 3
+
+1. Matrix chain multiplication    
+2. 0/1 Knapsack problem           ~     
+3. Huffman codes                  ~
+4. Travelling salesman problem    ~
