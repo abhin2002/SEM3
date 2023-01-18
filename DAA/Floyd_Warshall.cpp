@@ -24,17 +24,7 @@ void floyd_warshall(int A[][num])
 int main()
 {
     int i,j,no_of_vertices;
-    //cout<<"Enter no: of vertices : "<<" ";
-    //cin>>no_of_vertices;
-    /*cout<<"Enter the adjacency matrix : "<<endl;
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            cin>>a[i][j];
-            d[i][j] = a[i][j];
-        }
-    }*/
+
     cout<<"Enter the input matrix : "<<" ";
     int M[num][num];
     for(i=0;i<num;i++)
@@ -45,10 +35,7 @@ int main()
         }
         cout<<endl; 
     }    
-    //int M[num][num] = {{0 , 5 , INF ,10},
-     //                   {INF , 0 , 3 , INF },
-      //                  {INF, INF , 0 , 1},
-       //                 {INF , INF ,INF , 0 }};
+    
     cout<<"Enter the value 99999 wherever infinity is present "<<endl<<endl;   
     cout<<"The Input matrix is : "<<endl;
     for(i=0;i<num;i++)

@@ -1,0 +1,2054 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[left=1.1in, right=1.1in, top=1in, bottom=1.18in]{geometry}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{latexsym}
+\usepackage{caption}
+\usepackage{subcaption}
+%\useunder{\uline}{\ul}{}
+\usepackage[table,xcdraw]{xcolor}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\usepackage{fancyhdr}
+
+\usepackage{setspace}
+%\usepackage{epsfig}
+
+\usepackage{tocloft}
+
+\usepackage[pdftex]{graphicx}
+\thispagestyle{empty}
+\onehalfspacing
+
+%%Front Page
+\begin{document}
+	\begin{center}
+		\vspace{12pt}
+		\Large\textbf{M.Sc.}
+		\Large\textbf{(Five Year Integrated) in}
+		\Large\textbf{Computer Science  (Artificial Intelligence \& Data Science)\\}
+		\vspace{30pt}
+		\Large\textbf{Third Semester}
+		\vspace*{50pt}
+		\textbf{\\ Laboratory Record}
+		\vspace{5pt}
+		
+		\Large\textbf{21-805-0307: DATABASE SYSTEMS LAB\\ }
+		\vspace*{40pt}
+		\small\textit{\textbf{Submitted in partial fulfillment\\ of the requirements for the award of degree in \\ Master of Science (Five Year Integrated)\\in Computer Science (Artificial Intelligence \& Data Science) of \\ Cochin University of Science and Technology (CUSAT) \\ Kochi\\ }}
+		\vspace*{10pt}
+		\begin{center}
+		\includegraphics[scale=0.5]{cusat.png}	
+		\end{center}
+		
+		\vspace*{0pt}
+		\begin{center}
+		\textbf{\textit{Submitted by\hspace{350pt}}}
+		\end{center}
+
+%%Type your name and Reg No here
+
+		\textbf{NAMITHA M S\hspace{600pt}}
+		\vspace*{20pt}
+		\textbf{(80521013) \hspace{300pt}}
+		\vspace*{0pt}
+		\small\textbf{DEPARTMENT OF COMPUTER SCIENCE\\}
+		\small\textbf{COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY (CUSAT)\\}
+		\small\textbf{KOCHI-682022\\}
+		\vspace{10pt}
+		\small\textbf{JANUARY 2023}
+		
+		
+		
+	\end{center}
+	\newpage
+	\thispagestyle{empty}
+	
+	%%CERTIFICATE PAGE
+	
+	\begin{center}
+		\large\textbf{DEPARTMENT OF COMPUTER SCIENCE\\}
+		\small\textbf{COCHIN UNIVERSITY OF SCIENCE AND TECHNOLOGY (CUSAT)\\}
+		\small\textbf{KOCHI, KERALA-682022\\}
+		\vspace*{20pt}
+		\includegraphics[scale=0.5]{cusat.png}
+		\vspace*{20pt}
+	\end{center}
+	\vspace{15pt}
+	%%Edit your name and Register Number
+	
+	\textit{This is to certify that the software laboratory record for \textbf{21-805-0307: Database Systems Lab} is a record of work carried out by \textbf{NAMITHA M S(80521013)}, in partial fulfillment of the requirements for the award of degree in \textbf{Master of Science\small\text{ (Five Year Integrated)}} \normalsize in \textbf{Computer Science (Artificial Intelligence \& Data Science)} of Cochin University of Science and Technology (CUSAT), Kochi. The lab record has been approved as it satisfies the academic requirements in respect of the third semester laboratory prescribed for the Master of Science (Five Year Integrated) in Computer Science degree.\\\\\\\\\\\ }
+	\vspace{50pt}
+	\small\textbf{Faculty Member in-charge\\}
+	\vspace{0pt}
+	Sajmi Salaam \hspace{275pt} Dr. Philip Samuel \\
+	Guest Faculty \hspace{267 pt} Professor and Head\\
+	Department of Computer Science \hspace{106pt} Department of Computer Science \\
+	CUSAT \hspace{352pt} CUSAT
+	
+
+	\newpage
+	
+	\pagenumbering{roman}
+    \setcounter{page}{1}
+
+
+	
+	\pagestyle{fancy}
+	\fancyhead[L]{\footnotesize{21-805-0307: Database Systems Lab}}
+	\fancyfoot[C]{}
+	\fancyfoot[L]{\footnotesize{Dept. of Computer Science, CUSAT}}
+	\fancyfoot[R]{\footnotesize{Page \thepage}}
+		
+\begin{table}[!h]
+\renewcommand{\arraystretch}{1.69}
+\resizebox{\columnwidth}{!}{
+%\small\addtolength{\tabcolsep}{-1pt}
+\begin{tabular}{lll} &
+  \multicolumn{1}{c}{\textbf{Table of Contents}} &
+   \\ \hline
+ 
+\rowcolor[HTML]{FFFFFF} 
+{\color[HTML]{000000} \textbf{Sl.No.}} &
+  \multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textbf{Program}}} &
+  {\color[HTML]{000000} \textbf{Page.No.}} \\
+
+  \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} 1}} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000}Schema Diagram and ER Diagram}} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} 1}} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} 2}} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} Queries to implement DDL Commands}} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} 2}} \\ \hline
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} 3}} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} Queries to implement DML Commands}}&
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} 6}} \\ \hline
+\multicolumn{1}{|l|}{4} &
+  \multicolumn{1}{l|}{Queries to implement DCL Commands.} &
+  \multicolumn{1}{l|}{11} \\ \hline
+\multicolumn{1}{|l|}{5} &
+  \multicolumn{1}{l|}{{Queries to implement Group Functions}} &
+  \multicolumn{1}{l|}{12} \\ \hline
+\multicolumn{1}{|l|}{6} &
+  \multicolumn{1}{l|}{Program to implement Nested Queries} &
+  \multicolumn{1}{l|}{15} \\ \hline
+\multicolumn{1}{|l|}{7} &
+  \multicolumn{1}{l|}{Program to implement Views} &
+  \multicolumn{1}{l|}{18} \\ \hline
+\multicolumn{1}{|l|}{8} &
+  \multicolumn{1}{l|}{Programs of Functions And Procedures} &
+  \multicolumn{1}{l|}{20} \\ \hline
+\multicolumn{1}{|l|}{9} &
+  \multicolumn{1}{l|}{Implementation of Cursor} &
+  \multicolumn{1}{l|}{25} \\ \hline
+\multicolumn{1}{|l|}{10} &
+  \multicolumn{1}{l|}{Implementation of Trigger} &
+  \multicolumn{1}{l|}{30} \\ \hline
+\multicolumn{1}{|l|}{11} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{24292F} Queries to implement TCL Commands}} &
+  \multicolumn{1}{l|}{34} \\ \hline
+\multicolumn{1}{|l|}{12} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{24292F} Operations on NOSQL Systems}} &
+  \multicolumn{1}{l|}{\cellcolor[HTML]{FFFFFF}{\color[HTML]{24292F} 36}} \\ \hline
+\multicolumn{1}{|l|}{13} &
+  \multicolumn{1}{l|}{Simple Structure of GraphQL program} &
+  \multicolumn{1}{l|}{41} \\ \hline
+\multicolumn{1}{|l|}{14} &
+  \multicolumn{1}{l|}{Programs demonstrating Java Database Connectivity} &
+  \multicolumn{1}{l|}{43} \\ \hline
+\multicolumn{1}{|l|}{15} &
+  \multicolumn{1}{l|}{Project Report on Application Software} &
+  \multicolumn{1}{l|}{49} \\ \hline
+  
+\end{tabular}}
+\end{table}
+
+
+	%%To include the chapter name in the index page add the following comment after /newpage with program title
+
+	\newpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}	
+\newpage
+	%%To include the chapter name in the index page add the following comment after /newpage with program title
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+		%%Title of the Program
+		\large\textbf{SCHEMA DIAGRAM}
+	\end{center}
+\paragraph{}
+\includegraphics[scale=0.5]{SCHEMA.png}
+
+
+\begin{center}
+		%%Title of the Program
+		\large\textbf{ER DIAGRAM}
+	\end{center}
+\paragraph{}
+\includegraphics[scale=0.5]{SCHEMA.png}
+ \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{center}
+		%%Title of the Program
+		\large\textbf{DDL COMMANDS}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	    Develop SQL Queries to execute and verify the Data Definition Language commands and also implement Data Constraints.
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+ Create five tables using constraints like primary key, not null, check, default, null, unique, foreign key  as per the above schema
+	
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> use COMPANY;
+Database changed
+
+mysql> create table Employee(SSN varchar(10) not null primary key,Fname char(10),
+Lname char(10) ,Address varchar(50),Sex char(10),Salary int(10) check(salary<50000),
+SuperSSN varchar(10),DNO varchar(10));
+
+mysql> create table Department(DNO varchar(10) primary key,Dname char(10),
+MgrSSN varchar(10) not null,MgrStartDate varchar(10));
+
+mysql> create table Project(PNO varchar(10) primary key, PName char(10) not null,
+PLocation varchar(15), DNO varchar(10),foreign key(DNO) references Department(DNO));
+
+mysql> create table WORKS_ON(SSN varchar(20) primary key,PNO varchar(20),
+Hours integer);
+
+mysql> create table DLocation(DNO varchar(10) primary key,DLOC varchar(10),
+foreign key(DNO) references Department(DNO));
+
+\end{verbatim}
+
+	\begin{flushleft}
+		\textbf{DATABASE TABLES}
+	\end{flushleft} 
+
+%%Insert screen shot of sample output as image file as filename.png
+     
+\includegraphics[scale=0.7]{Screenshot (450).png}
+\vspace{10mm}
+   
+   \includegraphics[scale=0.7]{Screenshot (450)1.png}
+    
+    \vspace{10mm}
+    \includegraphics[scale=0.7]{project.png}
+    \vspace{10mm}
+    
+    \includegraphics[scale=0.7]{works.png}
+    \vspace{10mm}
+ 
+    \includegraphics[scale=0.7]{location.png}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+Add another column Age with datatype integer in Employee table
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> alter table Employee add(Age integer);
+\end{verbatim}
+\newpage
+\begin{flushleft}
+		\textbf{DATABASE TABLES}
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{alterempl.png}
+\begin{flushleft}
+    \textbf{Questions : 3}
+\end{flushleft}
+Drop a table named Project
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> Drop table Project;
+
+\end{verbatim}
+
+\begin{flushleft}
+		\textbf{DATABASE TABLES}
+\end{flushleft} 
+
+\includegraphics[scale=0.8]{Screenshot (454).png}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{flushleft}
+    \textbf{Questions : 4}
+\end{flushleft}
+Truncate a table named WORKS\_ON
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+
+mysql> Truncate table WORKS_ON;
+
+\end{verbatim}
+
+\begin{flushleft}
+		\textbf{DATABASE TABLES}
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{Truncatework.png}
+\begin{flushleft}
+    \textbf{Questions : 5}
+\end{flushleft}
+View the structure of the table Department
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> desc Department;
+
+\end{verbatim}
+
+\begin{flushleft}
+		\textbf{DATABASE TABLES}
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{dep.png}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+		%%Title of the Program
+		\large\textbf{DML COMMANDS}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	   Develop SQL Queries to execute and verify the Data Manipulation Language commands.
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+ Insert five records in the tables as per the above schema
+	
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> insert into Employee values ("e1001","Amrutha","Raj","Chennai","Female",15000,"s1001","d01",22);
+Query OK, 1 row affected (0.00 sec)
+
+insert into Employee values ("e1002","Sruthi","S","Mumbai","Female",20000,"s1002","d02",22);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee values ("e1003","Amal","V S","Kochi","Male",15500,"s1003","d03",20);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Employee values ("e1004","Rishi","S","Mumbai","Male",25000,"s1004","d04",24);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee values ("e1005","Tessa","John","Chennai","Female",15000,"s1005","d05",21);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Department values("d01","Marketing","m1001","2022-07-04");;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Department values("d02","Finance","m1002","2022-04-07");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Department values("d03","Sales","m1003","2022-08-18");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Department values("d04","HR","m1004","2022-02-1
+7");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Department values("d05","Management","m1005","2021-12-17");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Project values("p1001","PS","Chennai","d01");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Project values ("p1002","PP","Mumbai","d02");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Project values ("p1003","SP","Delhi","d03");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Project values ("p1004","Apollo","Mumbai","d04");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Project values ("p1005","Astron","Chennai","d05");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into WORKS_ON values("e1001","p1001",7);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into WORKS_ON values("e1002","p1002",10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into WORKS_ON values("e1003","p1003",9);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into WORKS_ON values("e1004","p1004",10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into WORKS_ON values("e1005","p1005",4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into DLOCATION values("d01","Chennai");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DLOCATION values("d02","Mumbai");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into DLOCATION values("d03","Delhi");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into DLOCATION values("d04","Mumbai");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into DLOCATION values("d05","Chennai");
+Query OK, 1 row affected (0.01 sec)
+\end{verbatim}
+
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+Display the entire content of the tables as per the above schema
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> SELECT * FROM Employee;
+mysql> SELECT * FROM Department;
+mysql> SELECT * FROM Project;
+mysql> SELECT * FROM WORKS_ON;
+mysql> SELECT * FROM DLOCATION;
+
+\end{verbatim}
+
+\begin{flushleft}
+		\textbf{DATABASE TABLES}
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{EMPLOYEEB.png}\newline\newline\includegraphics[scale=0.8]{DEPARTMENT2.png}\newline\newline
+\includegraphics[scale=0.7]{Screenshot (459).png}\newline\newline
+\includegraphics[scale=0.8]{WORKS_ON2.png}\newline\newline
+\includegraphics[scale=0.8]{DLOCATION2.png}\\
+
+\begin{flushleft}
+    \textbf{Questions : 3}
+\end{flushleft}
+Modify the salary of the Employee as 25000 whose SSN is e1001
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> Update Employee set SALARY=25000 where SSN="e1002";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+\end{verbatim}
+
+
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (467).png}
+
+\begin{flushleft}
+    \textbf{Questions : 4}
+\end{flushleft}
+Delete the details of the Employee whose SSN is "e1002"
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> Delete from Employee  where SSN="e1002";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+\end{verbatim}
+
+
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (468).png}
+\newpage
+
+\begin{center}
+		%%Title of the Program
+		\large\textbf{DCL COMMANDS}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	   Develop SQL Queries to implement Data Control Language commands
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+ To grant a SELECT permission on Employee table to user1
+	
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> create user 'user1'@'localhost' identified by 'password';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> grant select on COMPANY.Employee to 'user1'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (456).png}
+
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+Revoking a privilege to all users in a table
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+%%Insert the program code here
+\begin{verbatim}
+mysql> grant all on COMPANY.Employee to 'user1'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> Revoke all on Employee from 'user1'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{REVOKE.png}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+		%%Title of the Program
+		\large\textbf{GROUP FUNCTION OR AGGREGATE FUNCTION}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	   Develop SQL Queries to execute computation on table data with built-in functions
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+List the fname of all the Employee having ‘a’ as the second last character in their name.	
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+     mysql> select Fname from Employee where Fname like '%a_';
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{Screenshot (460).png}
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+Count the total number of male and female Employees in the Employee table.
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+   mysql> select Sex,count(*) from Employee group by Sex;  
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{Screenshot (461).png}
+\begin{flushleft}
+    \textbf{Questions : 3}
+\end{flushleft}
+Calculate the average salary of  the  female Employees.
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ mysql> select avg(Salary) from Employee where Sex="Female";    
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (462).png}
+\begin{flushleft}
+    \textbf{Questions : 4}
+\end{flushleft}
+Calculate the sum of salaries of male Employees.
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+  mysql> select sum(Salary) from Employee where Sex="Male";
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (464).png}
+\begin{flushleft}
+    \textbf{Questions : 5}
+\end{flushleft}
+Display the maximum and minimum salaries of male Employees.
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+     mysql> select max(Salary),min(Salary) from Employee where Sex="Male";
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (465).png}
+
+\begin{flushleft}
+    \textbf{Questions : 6}
+\end{flushleft}
+Display the details of all Employees whose salary between 25000 and 50000
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+     mysql> select * from Employee where Salary between 25000 and 50000;
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (466).png}
+
+\begin{flushleft}
+    \textbf{Questions : 7}
+\end{flushleft}
+Display the lname of the Employees whose salaries are 30000 or 40000 or 50000.
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+    mysql> select Lname from Employee where Salary=30000 or Salary=40000
+    or Salary = 50000; 
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.5]{Screenshot (469).png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+		%%Title of the Program
+		\large\textbf{NESTED QUERIES}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	   Develop SQL Queries to implement Nested Queries/ Sub Queries and Joins
+
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+Update the salary by 0.25 times for all the Employees whose Plocation is ‘Chennai’.
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+Update EMPLOYEE,PROJECT set Salary=Salary+(Salary*0.25)/100 where 
+EMPLOYEE.DNo=PROJECT.DNo and PLocation="Chennai";
+Query OK, 2 rows affected (0.01 sec)
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.5]{Screenshot (472).png}
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+
+To display the name and project location of Employees whose working hour is greater than 5
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+mysql> select Employee.Fname,Project.PLocation FROM Employee,WORKS_ON,Project 
+where WORKS_ON.Hours > 5 and Employee.SSN = WORKS_ON.SSN 
+and WORKS_ON.PNo=Project.PNo;
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+\includegraphics[scale=0.7]{Screenshot (473).png}
+\begin{flushleft}
+    \textbf{Questions : 3}
+\end{flushleft}
+Left join Employee table and works\_on table
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+mysql> select * from Employee left join WORKS_ON on Employee.SSN = WORKS_ON.SSN;
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.4]{Screenshot (474).png}
+\begin{flushleft}
+    \textbf{Questions : 4}
+\end{flushleft}
+Right join works\_on table and Employee table
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+mysql> select * from WORKS_ON RIGHT join Employee on 
+Employee.SSN = WORKS_ON.SSN;
+
+ \end{verbatim}
+ 
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.4]{Screenshot (475).png}
+
+\begin{flushleft}
+    \textbf{Questions : 5}
+\end{flushleft}
+
+Full join works\_on table and Employee table
+
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+mysql> select * from WORKS_ON full join Employee ;
+
+ \end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.4]{Screenshot (477).png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+		%%Title of the Program
+		\large\textbf{VIEWS}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	   Develop SQL Queries for creating and dropping Views
+
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+Create a view VW\_emp on Employee table
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+mysql> create view VW_emp as select*from Employee;
+Query OK, 0 rows affected (0.00 sec)
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.5]{Screenshot (478).png}
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+Create another view VW\_SSN contains SuperSSN and Dno of female Employees
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+mysql> create  view VW_SSN as select SuperSSN, DNO from Employee 
+where Sex = 'Female';
+Query OK, 0 rows affected (0.01 sec)
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.8]{Screenshot (479).png}
+\begin{flushleft}
+    \textbf{Questions : 3}
+\end{flushleft}
+Update the address of Employee to Chennai whose id is e100 in view VW\_emp
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+mysql> UPDATE VW_emp SET Address="Chennai" WHERE SSN='e1001';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.6]{Screenshot (480).png}
+\begin{flushleft}
+    \textbf{Questions : 4}
+\end{flushleft}
+Delete the view VW\_emp
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+mysql> drop view VW_emp;
+Query OK, 0 rows affected (0.00 sec)
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.8]{Screenshot (481).png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+		%%Title of the Program
+		\large\textbf{FUNCTIONS AND PROCEDURES}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	   Develop PL/SQL program to familiarize with Function and Procedure
+
+\begin{flushleft}
+    \textbf{Questions : 1}
+\end{flushleft}
+Write a PL/SQL function to find factorial of a number
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Dec 16 14:29:44 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+
+
+SQL> set serveroutput on
+SQL> edit@factorial.sql
+
+		create or replace function get_factorial(N int)
+		return varchar
+		is
+		fact int := 1;
+		begin
+		for i in 1..N loop
+		fact := fact*i;
+		end loop;
+		return 'Factorial is  '  || fact ;
+		end;
+		/
+		select get_factorial(5) from dual;
+
+
+SQL> @XEfactorial.sql
+
+Function created.
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{FACTORIAL.png}
+
+
+\begin{flushleft}
+    \textbf{Questions : 2}
+\end{flushleft}
+Write a PL/SQL function to find maximum of two numbers
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Dec 16 14:29:44 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+
+
+SQL> set serveroutput on
+SQL> edit@max.sql
+
+		create or replace function maximum(n1 int, n2 int)
+		return varchar
+		is
+		m int := 0;
+		begin
+		if n1>n2 then 
+		m := n1;
+		else
+		m := n2;
+		end if;
+		return  'Maximum is  ' ||m;
+		end;
+		/
+		select maximum(4,9) from dual;
+
+SQL> @XEmax.sql
+
+Function created.
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{MAXIMUM.png}
+
+
+\begin{flushleft}
+    \textbf{Questions : 3}
+\end{flushleft}
+Write a PL/SQL procedure to print the prime 
+	\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Dec 16 14:29:44 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: namitha
+Enter password:
+Connected.
+
+
+SQL> set serveroutput on
+
+SQL> edit@prime.sql
+
+		DECLARE
+    			i NUMBER(3);
+    			j NUMBER(3);
+		BEGIN
+		dbms_output.Put_line('The prime numbers are:');
+				dbms_output.new_line;
+    			i := 2;
+    			LOOP
+        			j := 2;
+        			LOOP
+            				EXIT WHEN( ( MOD(i, j) = 0 )
+                        			OR ( j = i ) );
+            				j := j + 1;
+        			END LOOP;
+        			IF( j = i )THEN
+         				dbms_output.Put(i||'   ');		   
+        			END IF;
+        			i := i + 1;
+        			exit WHEN i = 50;
+    			END LOOP;
+				dbms_output.new_line;
+		END;
+		/
+		
+SQL> @XEprime.sql
+
+Function created.
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{PRIME.png}
+
+
+\begin{flushleft}
+    \textbf{Questions : 4}
+\end{flushleft}
+Write a PL/SQL procedure to display numbers from 1 to 10 using while loop
+\begin{flushleft}
+		\textbf{QUERY }
+	\end{flushleft}
+ \begin{verbatim}
+ 
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Dec 16 14:29:44 2022
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+
+
+SQL> set serveroutput on
+SQL> edit@numbers.sql
+
+		DECLARE
+    			i INTEGER := 1;
+		BEGIN
+    			WHILE i <= 10 LOOP 
+        			DBMS_OUTPUT.PUT_LINE(i);
+    			i := i+1;
+    			END LOOP;
+		END;
+		/
+
+SQL> @XEnumbers.sql
+
+Function created.
+
+\end{verbatim}
+\begin{flushleft}
+		\textbf{DATABASE TABLES} 
+\end{flushleft} 
+
+\includegraphics[scale=0.7]{NUMBERS.png}
+
+\newpage
+\begin{center}
+%%Title of the Program
+\large\textbf{CURSOR}
+\end{center}
+
+\begin{flushleft}
+\textbf{AIM }
+\end{flushleft}
+%%Insert AIM of your program here
+Develop PL/SQL program to implement Cursor
+
+\begin{flushleft}
+    \textbf{Question : 1}
+\end{flushleft}
+Write a PL/SQL cursor program to update the salary of each employee of department number D001 in the Employee table as per the schema
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+
+SQL> create table Employee(SSN varchar(30),Fname varchar(30),Lname varchar(30),Address
+varchar(50),Sex varchar(15),Salary number(30),SuperSSN varchar(30),DNO varchar(20));
+
+Table created.
+
+SQL> create table Department(DNO varchar(20),Dname varchar(30),MgrSSN varchar(30),
+MgrStartDate varchar(20));
+
+Table created.
+
+SQL> insert into Employee values('e1001','Archana','Suresh','13B,Highway Gardens,
+Kozhikode','Female',60000,'SP1002','D001');
+
+1 row created.
+
+SQL> insert into Employee values('e1002','Justin','Varghese','Rose Villa,Kochi','Male',
+50000,'SP1001','D002');
+
+1 row created.
+
+SQL> insert into Employee values('e1003','Meera','Kumar','11B,Arcadia Building,Mumbai',
+'Female',70000,'SP1004','D001');
+
+1 row created.
+
+SQL> insert into Employee values('e1004','Kailas','Nath','V3,DD Homes,Bangalore','Male',
+30000,'SP1003','D003');
+
+1 row created.
+
+SQL> insert into Employee values('e1005 ','Sara','Khaild','Ashok Nagar,West Delhi',
+'Female',45000,'SP1005','D004');
+
+1 row created.
+
+SQL> insert into Employee values('e1006 ','Rahul','Ashok','LV Road,Bengaluru','Male',
+55000,'SP1005','D005');
+
+1 row created.
+
+SQL> create table Department(DNO varchar(20),Dname varchar(30),MgrSSN varchar(30),
+MgrStartDate varchar(20));
+
+Table created.
+
+SQL> insert into Department values('D001','Accounts','M1003','2015-09-01');
+1 row created.
+
+SQL> insert into Department values('D002','HR','M1002','2016-12-05');
+
+1 row created.
+
+SQL> insert into Department values('D003','Marketing','M1005','2012-04-04');
+
+1 row created.
+
+SQL> insert into Department values('D004','Sales','M1004','2019-08-20');
+
+1 row created.
+
+SQL> insert into Department values('D005','Management','M1001','2017-03-09');
+
+1 row created.
+
+SQL> declare cursor employee_cur is
+  2  select SSN,Salary from Employee where DNO = 'D001'
+  3  for update;
+  4  incr_sal number;
+  5  begin
+  6  for employee_rec in employee_cur loop
+  7  if employee_rec.Salary < 50000 then
+  8  incr_sal := .15;
+  9  else
+ 10  incr_sal := .10;
+ 11  end if;
+ 12  update Employee set Salary = Salary + Salary * incr_sal where current of
+ employee_cur;
+ 13  end loop;
+ 14  end;
+ 15  /
+
+PL/SQL procedure successfully completed.
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.2]{C1_emp_1.png}
+\includegraphics[scale=0.2]{C1_emp_2.png}
+\includegraphics[scale=0.2]{C1_op4.png}
+\includegraphics[scale=0.2]{C_Dept1.png}
+\includegraphics[scale=0.2]{C1_op1.png}
+\includegraphics[scale=0.2]{C1_op2.png}
+\includegraphics[scale=0.2]{C1_op4.png}
+
+\begin{flushleft}
+    \textbf{Question : 2}
+\end{flushleft}
+Write a PL/SQL cursor program to retrieve Dno and DName from Department table as per the schema
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+SQL> declare cursor department_cur is
+  2  select DNO,Dname from Department;
+  3  data1 Department.DNO%type;
+  4  data2 Department.Dname%type;
+  5  begin
+  6  open department_cur;
+  7  loop
+  8  fetch department_cur into data1,data2;
+  9  exit when department_cur%notfound;
+ 10  dbms_output.put_line('DNO : '||data1||'::Dname : '||data2);
+ 11  end loop;
+ 12  close department_cur;
+ 13  end;
+ 14  /
+
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.45]{C2.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+%%Title of the Program
+\large\textbf{TRIGGER}
+\end{center}
+
+\begin{flushleft}
+\textbf{AIM }
+\end{flushleft}
+%%Insert AIM of your program here
+Develop PL/SQL program to implement Trigger
+
+\begin{flushleft}
+    \textbf{Question : 1}
+\end{flushleft}
+Write PL/SQL trigger program to display the salary differences between the old values and new values in the table employee as per the schema
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+
+SQL> create table Customer(ID Number(38),NAME Varchar(50),ADDRESS Varchar(50),
+SALARY Number(38),AGE Number(38));
+
+Table created.
+
+SQL> desc Customer;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(38)
+ NAME                                               VARCHAR2(50)
+ ADDRESS                                            VARCHAR2(50)
+ SALARY                                             NUMBER(38)
+ AGE                                                NUMBER(38)
+
+SQL> insert into Customer values(10978,'Aleena James','Mumbai',90000,28);
+1 row created.
+
+SQL> insert into Customer values(21547,'Sidharth Anand','Delhi',67500,35);
+1 row created.
+
+SQL> insert into Customer values(17903,'Tanya Malhotra','Pune',85000,31);
+1 row created.
+
+SQL> insert into Customer values(78436,'Jaison Thomas','Kochi',95000,25);
+1 row created.
+
+
+
+SQL> select * from Customer;
+
+        ID NAME
+---------- --------------------------------------------------
+ADDRESS                                                SALARY        AGE
+-------------------------------------------------- ---------- ----------
+     10978 Aleena James
+Mumbai                                                  90000         28
+
+     21547 Sidharth Anand
+Delhi                                                   67500         35
+
+     17903 Tanya Malhotra
+Pune                                                    85000         31
+
+
+        ID NAME
+---------- --------------------------------------------------
+ADDRESS                                                SALARY        AGE
+-------------------------------------------------- ---------- ----------
+     78436 Jaison Thomas
+Kochi                                                   95000         25
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{T1A.png}
+\includegraphics[scale=0.415]{T1B.png}
+\includegraphics[scale=0.4]{T1C.png}
+\begin{flushleft}
+    \textbf{Question : 2}
+\end{flushleft}
+Write PL/SQL trigger program to display the hour differences between the old values and new values in the table Works\_on as per the schema
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+SQL> create table Works_on(SSN varchar(20),PNO varchar(20),Hours int);
+
+Table created.
+ 
+SQL> insert into Works_on values('S001','P002',9);
+
+1 row created.
+
+SQL> insert into Works_on values('S002','P005',12);
+
+1 row created.
+
+SQL> insert into Works_on values('S003','P001',4);
+
+1 row created.
+
+SQL> insert into Works_on values('S004','P003',8);
+
+1 row created.
+
+SQL> insert into Works_on values('S005','P004',10);
+
+1 row created.
+
+
+SQL> select * from Works_on;
+
+SSN                  PNO                       HOURS
+-------------------- -------------------- ----------
+S001                 P002                          9
+S002                 P005                         12
+S003                 P001                          4
+S004                 P003                          8
+S005                 P004                         10
+
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{T2A.png}
+\includegraphics[scale=0.523]{T2B.png}
+\includegraphics[scale=0.4]{T2C.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+%%Title of the Program
+\large\textbf{TCL}
+\end{center}
+
+\begin{flushleft}
+\textbf{AIM }
+\end{flushleft}
+%%Insert AIM of your program here
+Develop SQL Queries to understand the concept of Transaction Control Language
+
+\begin{flushleft}
+    \textbf{Question : 1}
+\end{flushleft}
+Creating Check points in the program
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+mysql> start transaction;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> savepoint save1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into Employee values("e1006","Anju","Rajesh","Sobha Marina,Kochi","Female",
+80000,"SP1004","D005",29);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> savepoint save2;
+Query OK, 0 rows affected (0.00 sec)
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.35]{tcl1.png}
+\includegraphics[scale=0.35]{tcl2.png}
+
+\begin{flushleft}
+    \textbf{Question : 2}
+\end{flushleft}
+Rollback to a previously created Checkpoint in the program
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+mysql> rollback to save1;
+Query OK, 0 rows affected (0.01 sec)
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.35]{tcl3.png}
+\begin{flushleft}
+    \textbf{Question : 3}
+\end{flushleft}
+Commit the program
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.45]{tcl4.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\newpage
+\begin{center}
+%%Title of the Program
+\large\textbf{MongoDB}
+\end{center}
+
+\begin{flushleft}
+\textbf{AIM }
+\end{flushleft}
+%%Insert AIM of your program here
+Develop program to perform operations in MongoDB
+
+\begin{flushleft}
+    \textbf{Question : 1}
+\end{flushleft}
+Create a database emp
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+test> use emp
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.464]{M1c.png}
+
+\begin{flushleft}
+    \textbf{Question : 2}
+\end{flushleft}
+Create new Collection
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+emp> db.createCollection("Department")
+{ ok: 1 }
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.5]{create&getM.png}
+\begin{flushleft}
+    \textbf{Question : 3}
+\end{flushleft}
+Check the collection list created and drop collection
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+emp> db.getCollectionNames()
+emp> db.Department.drop()
+\end{verbatim}
+\newpage
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.5]{M3.png}
+\begin{flushleft}
+    \textbf{Question : 4}
+\end{flushleft}
+Insert document in selected Collection
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+emp> db.Employee.insertOne({"Empno" : "E1001" , "Empname" : "Archana" ,
+"Salary" : 140000})
+{
+  acknowledged: true,
+  insertedId: ObjectId("63c51ae5fd5856e66b201526")
+}
+emp> try{ db.Employee.insertMany([{"Empno" : "E1002" , "Empname" : "Rahul" ,
+"Salary" : 120000},{"Empno" : "E1003" , "Empname" : "Sara" , "Salary" : 170000}]);
+... }
+... catch(e){
+... print(e);
+... }
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("63c51bb7fd5856e66b201527"),
+    '1': ObjectId("63c51bb7fd5856e66b201528")
+  }
+}
+\end{verbatim}
+
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.3]{M4.2.png}
+\begin{flushleft}
+    \textbf{Question : 5}
+\end{flushleft}
+To get the list documents in Collection
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+ emp> db.Employee.find()
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.3]{M4.2.png}
+\begin{flushleft}
+    \textbf{Question : 6}
+\end{flushleft}
+Update the document in Collection
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+emp> db.Employee.updateOne({"Empno" : "E1001"},
+... {
+... $set : {"Salary" : 160000},
+... $currentDate : {lastModified : true}
+... }
+... )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{M6.png}
+\begin{flushleft}
+    \textbf{Question : 7}
+\end{flushleft}
+Delete the document in selected Collection
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+emp> db.Employee.deleteOne({"Empname" : "Sara"});
+{ acknowledged: true, deletedCount: 1 }
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{M8.png}
+\begin{flushleft}
+    \textbf{Question : 8}
+\end{flushleft}
+Projection using find() method
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+ emp> db.Employee.find({}, {"Empname" : 1}).pretty()
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.386]{M9copy.png}
+\begin{flushleft}
+    \textbf{Question : 9}
+\end{flushleft}
+Drop database emp
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+emp> db.dropDatabase()
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.53]{M10.png}
+\newpage\newpage
+\begin{center}
+%%Title of the Program
+\large\textbf{GRAPH SQL}
+\end{center}
+
+\begin{flushleft}
+\textbf{AIM }
+\end{flushleft}
+%%Insert AIM of your program here
+Develop a GraphQL program to print "Hello world"
+
+\begin{flushleft}
+    \textbf{OUTPUT}
+\end{flushleft}
+\includegraphics[scale=0.4]{Screenshot 2022-12-15 161337.png}
+\includegraphics[scale=0.4]{Screenshot 2022-12-15 161407.png}
+\includegraphics[scale=0.4]{Screenshot 2022-12-15 161435.png}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+%%Title of the Program
+\large\textbf{JAVA BASE CONNECTIVITY}
+\end{center}
+
+\begin{flushleft}
+\textbf{AIM }
+\end{flushleft}
+%%Insert AIM of your program here
+Develop program to implement Java 
+Database Connectivity
+
+\begin{flushleft}
+    \textbf{Question : 1}
+\end{flushleft}
+Write a program which connects to 
+an online book database and insert 
+the details of the books in to the 
+database.
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+try {
+Class.forName("com.mysql.cj.jdbc.Driver");
+}
+catch (ClassNotFoundException ex) {
+Logger.getLogger(insert.class.getName()).log(Level.SEVERE, null, ex);
+}
+try (Connection con = DriverManager.getConnection
+("jdbc:mysql://localhost:3306/book","root","root")) {
+String sql = "insert into books values(?,?,?,?,?)";
+PreparedStatement ps = con.prepareStatement(sql);
+ps.setString(1,jTextField1.getText());
+ps.setString(2,jTextField2.getText());
+ps.setString(3, jTextField3.getText());
+ps.setString(4, jTextField4.getText());
+ps.setInt(5,Integer.parseInt(jTextField5.getText()));
+ps.execute();
+JOptionPane.showMessageDialog(this,"data saved succesfully");
+}
+catch(HeadlessException | NumberFormatException | SQLException e){
+JOptionPane.showMessageDialog(this,e);
+}
+}
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{Connectivity1.png}
+\begin{flushleft}
+    \textbf{Question : 2}
+\end{flushleft}
+Write a program which connects to 
+an online Employee database and 
+retrieve the details of the 
+employees in the database as per 
+the schema.
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+try {
+Class.forName("com.mysql.cj.jdbc.Driver");
+}
+catch (ClassNotFoundException ex) {
+Logger.getLogger(Retrieve.class.getName()).log(Level.SEVERE, null, ex);
+}
+try (Connection con = DriverManager.getConnection
+("jdbc:mysql://localhost:3306/company","root","root")) {
+String sql = "select * from employee where SSN = ?";
+PreparedStatement ps = con.prepareStatement(sql);
+ps.setString(1,ssn.getText());
+ResultSet rs = ps.executeQuery();
+if(rs.next()){
+Name.setText(rs.getString("Name"));
+address.setText(rs.getString("Address"));
+Age.setText(rs.getString("Age"));
+gender.setText(rs.getString("Sex"));
+}
+else{
+JOptionPane.showMessageDialog(this,"data Not Found");
+}
+}
+catch(HeadlessException | NumberFormatException | SQLException e){
+
+JOptionPane.showMessageDialog(this,e);
+}
+}
+
+\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{Connectivity2.png}
+
+\begin{flushleft}
+    \textbf{Question : 3}
+\end{flushleft}
+Write a program which connects to 
+an online hospital database and 
+update the details of the patients in 
+the database.
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+
+private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+try {
+Class.forName("com.mysql.cj.jdbc.Driver");
+}
+catch (ClassNotFoundException ex) {
+Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+}
+try (Connection con = DriverManager.getConnection
+("jdbc:mysql://localhost:3306/hospital","root","root")) {
+String sql = "select * from patients where phone = ?";
+PreparedStatement ps = con.prepareStatement(sql);
+ps.setString(1,phone.getText());
+ResultSet rs = ps.executeQuery();
+if(rs.next()){
+String sql2 = "update patients set Name=?,Gender = ?,
+bld_grp = ?,Age = ?,disease = ? where Phone = ?;";
+PreparedStatement ps2 = con.prepareStatement(sql2);
+ps2.setString(1,Name.getText());
+ps2.setString(2, gender.getText());
+ps2.setString(3, bld_grp.getText());
+ps2.setInt(4, Integer.parseInt(Age.getText()));
+ps2.setString(5, disease.getText());
+ps2.setInt(6,Integer.parseInt(phone.getText()));
+ps2.execute();
+JOptionPane.showMessageDialog(this,"Data Updated Succesfully");
+}
+else{
+JOptionPane.showMessageDialog(this,"data Not Found");
+}
+}
+catch(HeadlessException | NumberFormatException | SQLException e){
+JOptionPane.showMessageDialog(this,e);
+}
+}
+\end{verbatim}
+
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.25]{Connectivity3.png}
+\begin{flushleft}
+    \textbf{Question : 4}
+\end{flushleft}
+Write a program which connects to 
+an online Hotel database and delete 
+the details of the orders from the 
+databas
+
+\begin{flushleft}
+\textbf{QUERY }
+\end{flushleft}
+ \begin{verbatim}
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+String res = jTextField1.getText();
+try {
+Class.forName("com.mysql.cj.jdbc.Driver");
+}
+catch (ClassNotFoundException ex) {
+Logger.getLogger(delete_order.class.getName()).log(Level.SEVERE, null, ex);
+}
+try (Connection con = DriverManager.getConnection
+("jdbc:mysql://localhost:3306/hotel","root","root")) {
+if (res.equals("")){
+JOptionPane.showMessageDialog(this,"Empty Field Not Allowed");
+}
+PreparedStatement statement = (PreparedStatement)con.prepareStatement
+("select * from orders where reservation_no = ?;");
+statement.setString(1, res);
+ResultSet result = statement.executeQuery();
+if (!(result.next())){
+JOptionPane.showMessageDialog(this,"Data not in the DataBase");
+Dept. of Computer Science, CUSAT Page 45
+21-805-0307: Database Systems Lab
+}
+else{
+PreparedStatement ps = (PreparedStatement)con.prepareStatement
+("delete from orders where reservation_no = ?;");
+ps.setString(1,res);
+ps.execute();
+JOptionPane.showMessageDialog(this,"data deleted succesfully");
+con.close();
+statement.close();
+result.close();
+ps.close();
+}
+}
+catch(HeadlessException | NumberFormatException | SQLException e){
+JOptionPane.showMessageDialog(this,e);
+}
+}\end{verbatim}
+\begin{flushleft}
+\textbf{DATABASE TABLES}
+\end{flushleft}
+\includegraphics[scale=0.4]{Connecivity4.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+		%%Title of the Program
+		\large\textbf{PROJECT}
+	\end{center}
+	
+	\begin{flushleft}
+		\textbf{AIM }
+	\end{flushleft} 
+%%Insert AIM of your program here
+	 Develop an Application software using java and mySQL for Hostel management system.
+
+\begin{flushleft}
+    \textbf{Project DESCRIPTION}
+\end{flushleft}
+The project, Hostel Management System is a gui-based application that allows the Hostel admin and warden to handle all Hostel activities . Interactive GUI and the ability to manage various Hostel bookings and rooms make this system very flexible and convenient. Hostel management project provides rooms and can mange room detail. The system allows the warden to register new students and check room availability and help student vacate rooms.
+	\begin{flushleft}
+		\textbf{USERS AND FUNCTIONALITIES }
+	\end{flushleft}
+ \begin{verbatim} 
+ADMIN 
+
+Admin is the head user of this system.He can manage all the activities performed also 
+keeps record of everything.
+
+HOSTEL WARDEN 
+
+Do everything related to hostel registration, room booking,room vacating and also
+updating details of registered students .
+\end{verbatim}
+\begin{flushleft}
+		\textbf{REFERENCE DESIGN} 
+\end{flushleft} 
+\includegraphics[scale=0.6]{wardenusecase.png}
+\newpage
+GANTT CHART
+
+\includegraphics[scale=0.35]{Picture1.png}
+
+
+
+\section{Wireframes of the gui}
+\includegraphics[scale=0.3]{mainlogin.png}
+\includegraphics[scale=0.3]{adminlogin.png}
+\includegraphics[scale=0.3]{record.png'.png}
+\includegraphics[scale=0.3]{wardenhome.png}
+\includegraphics[scale=0.3]{ROOMBOOKING.png}
+
+
+\begin{flushleft}
+		\textbf{SOFTWARE TOOLS} 
+\end{flushleft} 
+\textbf{Apache Netbeans}
+\\
+Apache NetBeans is top level Apache Project dedicated to providing rock solid software development products (the Apache NetBeans IDE and the Apache NetBeans Platform) that address the needs of developers, users and the businesses who rely on NetBeans as a basis for their products; particularly, to enable them to develop these products quickly, efficiently and easily by leveraging the strengths of the Java platform and other relevant industry standards.
+The two base products, the Apache NetBeans IDE and Apache NetBeans Platform, are free for commercial and non-commercial use, under the Apache license. The source code to both is available to anyone to reuse as they see fit, within the terms of use.
+The Apache NetBeans project is also a vibrant community in which people from across the globe can ask questions, give advice, contribute and ultimately share in the success of our products. On the NetBeans mailing lists and forums, you will find posts from students, developers from top companies, and individuals looking to expand their skills.
+\\
+\textbf{MySQL}\\
+MySQL is an open-source relational database management system. As with other relational databases, MySQL stores data in tables made up of rows and columns. Users can define, manipulate, control, and query data using Structured Query Language, more commonly known as SQL
+\begin{flushleft}
+		\textbf{IMPLEMENTATION} 
+\end{flushleft} 
+UPDATE FUNCTION
+
+\begin{verbatim}
+     private void BookUpdateMouseClicked(java.awt.event.MouseEvent evt) { 
+        PreparedStatement ps;
+        String name1 = BookName.getText();
+        String department1 = BookDep.getText();
+        String studentId1 = BookId.getText();
+        String  food1 = BookFood.getSelectedItem().toString();
+        String  roomNo1 = BookRoom.getText();
+        String  year1= BookYear.getSelectedItem().toString();
+         try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306
+            /hostel","root","root");
+            Statement stm=con.createStatement();
+            String sql = "UPDATE room_booking  SET name='"+name1+"',department='"
+            +department1+"',foodPref='"+food1+"',
+            roomNo='"+roomNo1+"', numbOfYear='"+year1+"'where studentId='"+studentId1+"'";
+            ps = con.prepareStatement(sql);
+            ps.execute();
+            stm.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Updated Successfully");
+        }
+        catch(Exception e){
+            //System.out.println(e);
+          JOptionPane.showMessageDialog(this,e.getMessage());
+    }                     
+\end{verbatim}
+
+SEARCH FUNCTION
+\begin{verbatim}
+    private void BookSearchMouseClicked(java.awt.event.MouseEvent evt) {        // TODO add your handling code here:
+        String name1 = BookName.getText();
+        String StudentId1 = BookId.getText();
+        String department1 = BookDep.getText();
+        String  food1 = BookFood.getSelectedItem().toString();
+        String  roomNo1 = BookRoom.getText();
+        String  year1= BookYear.getSelectedItem().toString();
+        PreparedStatement ps;
+        ResultSet rs;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:
+            3306/hostel","root","root");
+            String querysql = "select * from room_booking where studentId = '"
+            +StudentId1+"'";
+            ps = con.prepareStatement(querysql);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                StudentId1 = rs.getString("studentId");
+                BookId.setText(StudentId1);
+                department1 = rs.getString("department");
+                BookDep.setText(department1);
+                roomNo1 = rs.getString("roomNo");
+                BookRoom.setText(roomNo1);
+                name1 = rs.getString("name");
+                BookName.setText(name1);
+                BookFood.setSelectedItem(rs.getString("foodPref"));
+                BookYear.setSelectedItem(rs.getString("numbOfYear"));
+            }
+            //JOptionPane.showMessageDialog(null,"Updated Successfully");
+        }
+        catch(Exception e){
+            //System.out.println(e);
+            JOptionPane.showMessageDialog(this,e.getMessage());
+    }                     
+\end{verbatim}
+
+DELETE FUNCTION
+\begin{verbatim}
+    private void BookDeleteMouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // TODO add your handling code here:
+        String StudentId1 =BookId.getText();
+        try{
+          Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:
+            3306/hostel","root","root");
+            Statement stm = con.createStatement();
+           
+            String sql = "DELETE FROM room_booking WHERE studentId='"+StudentId1+"'";
+            stm.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Deleted Successfully");
+
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+\end{verbatim}
+\begin{flushleft}
+		\textbf{RESULT AND OUTPUT}
+\end{flushleft} 
+\includegraphics[scale=0.4]{Screenshot (490).png}
+
+
+
+\includegraphics[scale=0.4]{Screenshot (491).png}
+\vspace{10mm}
+\includegraphics[scale=0.3]{adminlogin.png}
+\includegraphics[scale=0.3]{wardenhome.png}
+\includegraphics[scale=0.3]{Screenshot (492).png}
+\includegraphics[scale=0.3]{Screenshot (493).png}
+\newpage
+\begin{flushleft}
+		\textbf{CRITICAL EVALUATION} 
+\end{flushleft} 
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}Test case \\ no\end{tabular} & Description                                                                                                                                    & Input                                                                        & \begin{tabular}[c]{@{}l@{}}Expected\\  output\end{tabular}                                     & \begin{tabular}[c]{@{}l@{}}Actual\\ Output\end{tabular}           & Result \\ \hline
+1                                                       & \begin{tabular}[c]{@{}l@{}}Sign In\\  whether \\ the input \\ username\\ and password\\  are\\ right\end{tabular}                              & \begin{tabular}[c]{@{}l@{}}Right \\ username \\ and password\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Signin\\ Success\\ fully\end{tabular}                               & \begin{tabular}[c]{@{}l@{}}Signin \\ Sucess\\ full\end{tabular}   & passed \\ \hline
+2                                                       & \begin{tabular}[c]{@{}l@{}}Sign in \\ whether\\ the inputs\\ username \\ and password\\ are \\ wrong\end{tabular}                              & \begin{tabular}[c]{@{}l@{}}Wrong \\ username \\ and \\ password\end{tabular} & \begin{tabular}[c]{@{}l@{}}signin \\ Unsucess\\ fully\end{tabular}                             & \begin{tabular}[c]{@{}l@{}}Signin \\ Unsucess\\ full\end{tabular} & Passed \\ \hline
+3                                                       & \begin{tabular}[c]{@{}l@{}}Check whether\\  the tables \\ are created\end{tabular}                                                             & \begin{tabular}[c]{@{}l@{}}Input\\ are \\ given\end{tabular}                 & \begin{tabular}[c]{@{}l@{}}Tables \\ created\end{tabular}                                      & table creates                                                     & passed \\ \hline
+4                                                       & \begin{tabular}[c]{@{}l@{}}Check \\ Whether\\ Updation,\\ Deletion, \\ Search,\\  are done \\ according to\\  the given \\ inputs\end{tabular} & \begin{tabular}[c]{@{}l@{}}Inputs are \\ Given\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}Updation\\  Deletion,\\ Search Addition\\ are are done\end{tabular} & \begin{tabular}[c]{@{}l@{}}Done\\  sucessfully\end{tabular}       & Passed \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\begin{flushleft}
+		\textbf{CONCLUSION} 
+\end{flushleft} 
+This project ' hostel management system' makes it easier the process of room booking or hostel booking for students. This project reduces the difficulties of keep hard copies of data as all the details become digital.Hostel Warden and hostel admin can go through all the data in a spin of time easily with help of this.
+\begin{flushleft}
+		\textbf{REFERENCES} 
+\end{flushleft} 
+References of the project
+
+\end{document}

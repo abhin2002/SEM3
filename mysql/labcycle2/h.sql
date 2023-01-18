@@ -1,0 +1,6 @@
+DECLARE
+BEGIN
+	UPDATE works_on
+	SET HOURS = HOURS - 2;
+END;
+/

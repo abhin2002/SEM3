@@ -58,7 +58,7 @@ int main()
             tree_edges.push_back({a, b});
         }
     }
-    cout << "Edges are : " << endl;
+    cout << "Edges of Minimum Spanning Tree : " << endl;
     for (auto x : tree_edges) // MST edges
     {
         cout << x.first << " " << x.second << endl;
