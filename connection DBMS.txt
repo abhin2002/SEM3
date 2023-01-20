@@ -1,0 +1,16 @@
+	try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/java_app","root","root");
+            Statement stml=con.createStatement();
+            ResultSet rs=stml.executeQuery("select * from login where email='"+id+"'and password='"+pass+"'");
+            if(rs.next())
+            {
+               JOptionPane.showMessageDialog(null,"Your email id is "+id+"\nPassword is "+pass); 
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Invalid Credentials");
+                
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
