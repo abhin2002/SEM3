@@ -1,0 +1,2 @@
+end = time.time()
+print("Time of execution of Gauss-Jordan method : ",(end - start)*10**3, "ms")
